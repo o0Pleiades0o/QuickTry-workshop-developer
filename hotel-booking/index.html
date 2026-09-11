@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>จองที่พัก — หาที่พักที่ใช่ทั่วไทย</title>
+
+  <!-- Tailwind CSS ผ่าน CDN — ไม่ต้อง build อะไรเลย -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // ฟอนต์ไทยให้ทั้งเว็บ (สีหลักของแบรนด์คือเขียวน้ำทะเล teal)
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['IBM Plex Sans Thai', 'sans-serif'] } } },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .reveal { animation: fadeUp .5s ease-out both; }
+    @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
+
+    /* 👇 โจทย์ 2: การ์ด .why-us-card ยังโล่ง ๆ — เขียน CSS แต่งเองตรงนี้ (ยังไม่ใช้ Tailwind)
+       ลองใส่: background (พื้นหลัง), border-radius (มุมโค้ง), padding (ระยะขอบใน), color (สีตัวอักษร) */
+    .why-us-card {
+      /* เขียน CSS ตรงนี้ */
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-800">
+
+  <!-- ============================================================
+       HEADER — โลโก้ + เมนู + ปุ่มเข้าสู่ระบบ
+       ============================================================ -->
+  <header class="sticky top-0 z-20 bg-white/90 backdrop-blur border-b border-stone-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold text-teal-600">จองที่พัก</a>
+      <nav class="flex items-center gap-6 text-stone-600 font-medium">
+        <a href="index.html" class="hover:text-teal-600">หน้าแรก</a>
+        <!-- 👇 โจทย์ 3: ลิงก์นี้ชี้ไปหน้า about.html (ไปเติมเนื้อหาหน้านั้น) -->
+        <a href="about.html" class="hover:text-teal-600">เกี่ยวกับเรา</a>
+        <button class="bg-teal-600 text-white px-5 py-2 rounded-full hover:bg-teal-700 transition">เข้าสู่ระบบ</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO — พร้อมแถบค้นหา (แถบค้นหานี้เป็นแค่การตกแต่ง)
+         ============================================================ -->
+    <section class="bg-gradient-to-br from-teal-600 to-cyan-600 text-white">
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+        <!-- 👇 โจทย์ 1: แก้ข้อความต้อนรับ + คำโปรย ให้เป็นของเรา -->
+        <h2 class="text-4xl md:text-5xl font-bold mb-3">หาที่พักที่ใช่สำหรับคุณ</h2>
+        <p class="text-white/90 text-lg mb-8">รวมโรงแรมและโฮมสเตย์ทั่วไทย จองง่าย ราคาดี</p>
+
+        <!-- แถบค้นหา (ตกแต่งให้เหมือนเว็บจริง ยังไม่ทำงาน) -->
+        <div class="bg-white rounded-2xl shadow-lg p-3 flex flex-col md:flex-row gap-3 max-w-3xl mx-auto text-left text-stone-700">
+          <div class="flex-1 px-3 py-2">
+            <label class="block text-xs text-stone-400">จุดหมาย</label>
+            <input type="text" placeholder="จะไปเที่ยวไหนดี?" class="w-full focus:outline-none" />
+          </div>
+          <div class="flex-1 px-3 py-2 border-t md:border-t-0 md:border-l border-stone-100">
+            <label class="block text-xs text-stone-400">วันเข้าพัก</label>
+            <input type="text" placeholder="เลือกวันที่" class="w-full focus:outline-none" />
+          </div>
+          <button class="bg-teal-600 text-white font-semibold px-8 py-3 rounded-xl hover:bg-teal-700 transition">ค้นหา</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- ============================================================
+           ทำไมเลือกเรา — การ์ดเขียนมือ (CSS ดิบ)
+           ============================================================ -->
+      <section class="my-10">
+        <!-- การ์ด .why-us-card — 👇 โจทย์ 2: แต่งด้วย CSS ดิบ (คลาส .why-us-card อยู่ในส่วน <style> ด้านบน) -->
+        <article class="why-us-card">
+          <h4>จองง่าย ไม่มีค่าใช้จ่ายแอบแฝง</h4>
+          <p>ราคาที่เห็น คือราคาที่จ่ายจริง ยกเลิกฟรีทุกที่พัก</p>
+        </article>
+      </section>
+
+      <!-- ============================================================
+           แถบ FILTER — ปุ่มกรองตามเมือง
+           👇 โจทย์ 5: ปุ่มพวกนี้ยังกดไม่ทำงาน ทำให้มันกรองโรงแรมได้
+           ============================================================ -->
+      <section class="my-10">
+        <h3 class="text-lg font-semibold mb-4">เลือกเมือง</h3>
+        <div id="filter-bar" class="flex flex-wrap gap-3">
+          <button data-city="ทั้งหมด"   class="filter-btn px-5 py-2 rounded-full border border-stone-200 bg-white font-medium hover:border-teal-500">ทั้งหมด</button>
+          <button data-city="กรุงเทพ"   class="filter-btn px-5 py-2 rounded-full border border-stone-200 bg-white font-medium hover:border-teal-500">กรุงเทพ</button>
+          <button data-city="เชียงใหม่" class="filter-btn px-5 py-2 rounded-full border border-stone-200 bg-white font-medium hover:border-teal-500">เชียงใหม่</button>
+          <button data-city="ภูเก็ต"    class="filter-btn px-5 py-2 rounded-full border border-stone-200 bg-white font-medium hover:border-teal-500">ภูเก็ต</button>
+        </div>
+      </section>
+
+      <!-- รายการโรงแรม — main.js จะเติมการ์ดเข้ามาจาก hotels.json -->
+      <section class="mb-20">
+        <h3 class="text-2xl font-bold mb-2">ที่พักแนะนำ</h3>
+        <!-- 👇 โจทย์ 6: ตัวเลขค้างที่ "พบ 0 ที่พัก" เสมอ — ไปอัปเดตใน main.js (ฟังก์ชัน renderHotels) -->
+        <p id="result-count" class="text-stone-500 text-sm mb-4">พบ 0 ที่พัก</p>
+        <div id="hotel-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bg-white border-t border-stone-100">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div>
+        <p class="text-lg font-bold text-teal-600 mb-3">จองที่พัก</p>
+        <p class="text-stone-500">หาที่พักที่ใช่ทั่วไทย จองง่าย ราคาดี</p>
+      </div>
+      <div>
+        <p class="font-semibold mb-3">ช่วยเหลือ</p>
+        <ul class="space-y-2 text-stone-500"><li>วิธีการจอง</li><li>ยกเลิกการจอง</li><li>ติดต่อเรา</li></ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-3">เกี่ยวกับ</p>
+        <ul class="space-y-2 text-stone-500"><li>เรื่องราวของเรา</li><li>ร่วมงานกับเรา</li></ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-3">ติดตามเรา</p>
+        <ul class="space-y-2 text-stone-500"><li>Facebook</li><li>Instagram</li><li>YouTube</li></ul>
+      </div>
+    </div>
+    <p class="text-center text-stone-400 text-xs pb-8">© 2024 จองที่พัก · ทำเพื่อการเรียนรู้</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

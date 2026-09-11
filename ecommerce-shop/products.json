@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "หูฟังไร้สาย",
+    "price": 990,
+    "oldPrice": 1290,
+    "rating": 5,
+    "reviews": 214,
+    "sold": "1.2k",
+    "badge": "ลดราคา",
+    "emoji": "🎧",
+    "image": "https://loremflickr.com/400/400/headphones?lock=1"
+  },
+  {
+    "id": 2,
+    "name": "แก้วเก็บความเย็น",
+    "price": 350,
+    "rating": 4,
+    "reviews": 88,
+    "sold": "640",
+    "badge": "ขายดี",
+    "emoji": "🥤",
+    "image": "https://loremflickr.com/400/400/tumbler,bottle?lock=2"
+  },
+  {
+    "id": 3,
+    "name": "รองเท้าวิ่ง",
+    "price": 1290,
+    "oldPrice": 1690,
+    "rating": 5,
+    "reviews": 302,
+    "sold": "2.1k",
+    "badge": "ลดราคา",
+    "emoji": "👟",
+    "image": "https://loremflickr.com/400/400/running,shoes?lock=3"
+  },
+  {
+    "id": 4,
+    "name": "กระเป๋าเป้",
+    "price": 790,
+    "rating": 4,
+    "reviews": 57,
+    "sold": "420",
+    "emoji": "🎒",
+    "image": "https://loremflickr.com/400/400/backpack?lock=4"
+  },
+  {
+    "id": 5,
+    "name": "นาฬิกาข้อมือ",
+    "price": 1590,
+    "oldPrice": 1990,
+    "rating": 5,
+    "reviews": 176,
+    "sold": "980",
+    "badge": "ลดราคา",
+    "emoji": "⌚",
+    "image": "https://loremflickr.com/400/400/wristwatch?lock=5"
+  },
+  {
+    "id": 6,
+    "name": "กล้องอินสแตนต์",
+    "price": 2490,
+    "rating": 4,
+    "reviews": 64,
+    "sold": "350",
+    "badge": "ขายดี",
+    "emoji": "📷",
+    "image": "https://loremflickr.com/400/400/instant,camera?lock=6"
+  }
+]

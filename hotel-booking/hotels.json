@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "บ้านริมเล รีสอร์ท",
+    "city": "ภูเก็ต",
+    "price": 2500,
+    "oldPrice": 3200,
+    "rating": 5,
+    "reviews": 328,
+    "emoji": "🏖️",
+    "amenities": [
+      "WiFi ฟรี",
+      "สระว่ายน้ำ",
+      "อาหารเช้า"
+    ],
+    "image": "https://loremflickr.com/600/400/resort?lock=12"
+  },
+  {
+    "id": 2,
+    "name": "โรงแรมกลางเมือง",
+    "city": "กรุงเทพ",
+    "price": 1800,
+    "rating": 4,
+    "reviews": 210,
+    "emoji": "🏙️",
+    "amenities": [
+      "WiFi ฟรี",
+      "ฟิตเนส"
+    ],
+    "image": "https://loremflickr.com/600/400/hotel,city?lock=12"
+  },
+  {
+    "id": 3,
+    "name": "ดอยหมอกโฮมสเตย์",
+    "city": "เชียงใหม่",
+    "price": 1200,
+    "rating": 4,
+    "reviews": 143,
+    "emoji": "⛰️",
+    "amenities": [
+      "WiFi ฟรี",
+      "วิวภูเขา"
+    ],
+    "image": "https://loremflickr.com/600/400/mountain,homestay?lock=13"
+  },
+  {
+    "id": 4,
+    "name": "เดอะ ริเวอร์ วิว",
+    "city": "กรุงเทพ",
+    "price": 3200,
+    "oldPrice": 3900,
+    "rating": 5,
+    "reviews": 401,
+    "emoji": "🌃",
+    "amenities": [
+      "WiFi ฟรี",
+      "สระว่ายน้ำ",
+      "สปา"
+    ],
+    "image": "https://loremflickr.com/600/400/river,hotel?lock=14"
+  },
+  {
+    "id": 5,
+    "name": "ทะเลใสวิลล่า",
+    "city": "ภูเก็ต",
+    "price": 4200,
+    "oldPrice": 5000,
+    "rating": 5,
+    "reviews": 189,
+    "emoji": "🌊",
+    "amenities": [
+      "สระส่วนตัว",
+      "ติดทะเล",
+      "อาหารเช้า"
+    ],
+    "image": "https://loremflickr.com/600/400/villa,sea?lock=15"
+  },
+  {
+    "id": 6,
+    "name": "สวนดอกไม้ เกสต์เฮาส์",
+    "city": "เชียงใหม่",
+    "price": 900,
+    "rating": 3,
+    "reviews": 76,
+    "emoji": "🌸",
+    "amenities": [
+      "WiFi ฟรี",
+      "สวน"
+    ],
+    "image": "https://loremflickr.com/600/400/garden,guesthouse?lock=8"
+  }
+]

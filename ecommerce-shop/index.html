@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ร้านของเรา — ช้อปง่าย ได้ของดี</title>
+
+  <!-- Tailwind CSS ผ่าน CDN — ไม่ต้อง build อะไรเลย เปิดไฟล์ก็ใช้ได้ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // ตั้งค่าฟอนต์ไทยให้ทั้งเว็บ + สีหลักของแบรนด์ (สีส้ม)
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['IBM Plex Sans Thai', 'sans-serif'] } } },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* animation การรปรากฏของการ์ด */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .reveal { animation: fadeUp .5s ease-out both; }
+    @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
+
+    /* 👇 โจทย์ 2: การ์ดโปรโมชัน (.promo-card) ยังโล่ง ๆ — เขียน CSS แต่งเองตรงนี้ (ยังไม่ใช้ Tailwind)
+       ลองใส่: background (พื้นหลัง), border-radius (มุมโค้ง), padding (ระยะขอบใน), color (สีตัวอักษร) */
+    .promo-card {
+      /* เขียน CSS ตรงนี้ */
+    }
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-800">
+
+  <!-- ============================================================
+       แถบประกาศด้านบนสุด
+       ============================================================ -->
+  <div class="bg-orange-600 text-white text-center text-sm py-2 px-4">
+    ส่งฟรีทั่วประเทศ เมื่อสั่งครบ ฿500
+  </div>
+
+  <!-- ============================================================
+       HEADER — โลโก้ + ช่องค้นหา + ตะกร้า
+       ============================================================ -->
+  <header class="sticky top-0 z-20 bg-white/90 backdrop-blur border-b border-stone-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center gap-6">
+      <!-- 👇 โจทย์ 1: ลองแก้ชื่อร้านตรงนี้ -->
+      <a href="index.html" class="text-2xl font-bold text-orange-600 shrink-0">ร้านของเรา</a>
+
+      <!-- ช่องค้นหา (ไอคอนแว่นขยาย ไม่ต้องแก้) -->
+      <div class="flex-1 max-w-xl relative hidden sm:block">
+        <input type="text" placeholder="ค้นหาสินค้า..."
+          class="w-full rounded-full border border-stone-200 bg-stone-50 pl-11 pr-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <svg class="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+
+      <!-- ปุ่มตะกร้า (ไอคอนถุงช้อปปิ้ง ไม่ต้องแก้) -->
+      <button id="cart-button" class="relative ml-auto shrink-0 rounded-full p-2 hover:bg-stone-100">
+        <svg class="w-7 h-7 text-stone-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span id="cart-count"
+          class="absolute -top-0.5 -right-0.5 bg-orange-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+      </button>
+    </div>
+
+    <!-- เมนูหมวดหมู่ -->
+    <nav class="max-w-6xl mx-auto px-6 pb-3 flex gap-6 text-sm text-stone-500 overflow-x-auto">
+      <a href="#" class="hover:text-orange-600 whitespace-nowrap">สินค้าทั้งหมด</a>
+      <a href="#" class="hover:text-orange-600 whitespace-nowrap">โปรโมชั่น</a>
+      <a href="#" class="hover:text-orange-600 whitespace-nowrap">สินค้าใหม่</a>
+      <a href="#" class="hover:text-orange-600 whitespace-nowrap">ขายดี</a>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6">
+
+    <!-- ============================================================
+         HERO — แบนเนอร์โปรโมชั่น
+         ============================================================ -->
+    <section class="my-8 grid md:grid-cols-2 gap-8 items-center rounded-3xl bg-gradient-to-br from-orange-500 to-amber-500 text-white p-10 md:p-14 overflow-hidden">
+      <div>
+        <!-- 👇 โจทย์ 1: แก้ข้อความต้อนรับ + ข้อความบนปุ่ม -->
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-4">ช้อปสินค้าดี<br>ในราคาสบายกระเป๋า</h2>
+        <p class="text-white/90 text-lg mb-6">คัดของคุณภาพมาเพื่อคุณ ส่งไว ทั่วไทย</p>
+        <button class="bg-white text-orange-600 font-semibold px-7 py-3 rounded-full hover:bg-orange-50 transition">ช้อปเลย</button>
+      </div>
+      <div class="hidden md:flex justify-center text-[10rem] leading-none">🛍️</div>
+    </section>
+
+    <!-- ============================================================
+         หมวดหมู่แบบเลือกด่วน
+         ============================================================ -->
+    <section class="mb-12 flex flex-wrap gap-3">
+      <span class="px-5 py-2 rounded-full bg-orange-600 text-white border border-orange-600 text-sm font-medium">แฟชั่น</span>
+      <span class="px-5 py-2 rounded-full bg-white border border-stone-200 text-sm font-medium">อิเล็กทรอนิกส์</span>
+      <span class="px-5 py-2 rounded-full bg-white border border-stone-200 text-sm font-medium">ของใช้ในบ้าน</span>
+      <span class="px-5 py-2 rounded-full bg-white border border-stone-200 text-sm font-medium">กีฬา</span>
+    </section>
+
+    <!-- ============================================================
+         สินค้าแนะนำ — การ์ดเขียนมือ (HTML/CSS)
+         ============================================================ -->
+    <section class="mb-16">
+      <h3 class="text-2xl font-bold mb-6">สินค้าแนะนำ</h3>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- การ์ดที่ 1 -->
+        <article class="bg-white rounded-2xl border border-stone-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition overflow-hidden">
+          <!-- รูปสินค้า: ถ้ารูปโหลดไม่ขึ้น จะโชว์อีโมจิแทน (onerror) -->
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center text-7xl">🍫</div>
+            <img src="https://loremflickr.com/400/300/chocolate?lock=11" alt="ช็อกโกแลต" loading="lazy"
+              class="relative w-full h-full object-cover" onerror="this.remove()" />
+          </div>
+          <div class="p-4">
+            <h4 class="font-semibold">ช็อกโกแลต</h4>
+            <p class="text-orange-600 font-bold mt-2">฿120</p>
+          </div>
+        </article>
+
+        <!-- การ์ดที่ 2 -->
+        <article class="bg-white rounded-2xl border border-stone-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition overflow-hidden">
+          <!-- รูปสินค้า: ถ้ารูปโหลดไม่ขึ้น จะโชว์อีโมจิแทน (onerror) -->
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center text-7xl">☕</div>
+            <img src="https://loremflickr.com/400/300/coffee?lock=12" alt="กาแฟคั่วบด" loading="lazy"
+              class="relative w-full h-full object-cover" onerror="this.remove()" />
+          </div>
+          <div class="p-4">
+            <h4 class="font-semibold">กาแฟคั่วบด</h4>
+            <p class="text-orange-600 font-bold mt-2">฿250</p>
+          </div>
+        </article>
+
+        <!-- การ์ดโปรโมชัน — 👇 โจทย์ 2: แต่งด้วย CSS ดิบ (คลาส .promo-card อยู่ในส่วน <style> ด้านบน) -->
+        <article class="promo-card">
+          <h4>ลดพิเศษวันนี้!</h4>
+          <p>ช้อปครบ ฿500 ส่งฟรีทั่วไทย</p>
+        </article>
+
+        <!-- 👇 โจทย์ 4: สร้างการ์ดสินค้าใบที่ 3 ตรงนี้ (ก็อปโครงจากการ์ดข้างบน) -->
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         สินค้าทั้งหมด — การ์ดที่ JavaScript สร้างจาก products.json
+         ============================================================ -->
+    <section class="mb-20">
+      <!-- 👇 โจทย์ 3: หัวข้อนี้ชิดซ้ายอยู่ ลองจัดให้อยู่กึ่งกลาง -->
+      <h3 class="text-2xl font-bold mb-6">สินค้าทั้งหมด</h3>
+
+      <!-- กล่องนี้ว่างไว้ เดี๋ยว main.js จะเติมการ์ดสินค้าเข้ามา -->
+      <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bg-white border-t border-stone-100">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div>
+        <p class="text-lg font-bold text-orange-600 mb-3">ร้านของเรา</p>
+        <p class="text-stone-500">ช้อปง่าย ได้ของดี ส่งไวทั่วไทย</p>
+      </div>
+      <div>
+        <p class="font-semibold mb-3">ช่วยเหลือ</p>
+        <ul class="space-y-2 text-stone-500"><li>วิธีสั่งซื้อ</li><li>การจัดส่ง</li><li>คืนสินค้า</li></ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-3">เกี่ยวกับ</p>
+        <ul class="space-y-2 text-stone-500"><li>เรื่องราวของเรา</li><li>ร่วมงานกับเรา</li></ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-3">ติดตามเรา</p>
+        <ul class="space-y-2 text-stone-500"><li>Facebook</li><li>Instagram</li><li>TikTok</li></ul>
+      </div>
+    </div>
+    <p class="text-center text-stone-400 text-xs pb-8">© 2024 ร้านของเรา · ทำเพื่อการเรียนรู้</p>
+  </footer>
+
+  <!-- ============================================================
+       ตะกร้าสินค้า (ซ่อนไว้ก่อน กดปุ่มตะกร้าเพื่อเปิด)
+       ============================================================ -->
+  <div id="cart-overlay" class="hidden fixed inset-0 bg-black/30 z-30"></div>
+  <aside id="cart-panel"
+    class="hidden fixed top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 z-40 flex flex-col">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-lg font-bold">ตะกร้าของฉัน</h3>
+      <button id="cart-close" class="rounded-full p-1 hover:bg-stone-100">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <ul id="cart-items" class="space-y-3 text-stone-700 overflow-y-auto"></ul>
+    <p id="cart-empty" class="text-stone-400 mt-2">ยังไม่มีสินค้าในตะกร้า</p>
+    <!-- 👇 โจทย์ 6: ยอดรวมค้างที่ ฿0 เสมอ — ไปคิดยอดรวมใน main.js (ฟังก์ชัน renderCart) -->
+    <div class="mt-auto pt-4 border-t border-stone-100 flex justify-between font-bold">
+      <span>รวมทั้งหมด</span>
+      <span id="cart-total">฿0</span>
+    </div>
+  </aside>
+
+  <script src="main.js"></script>
+</body>
+</html>
