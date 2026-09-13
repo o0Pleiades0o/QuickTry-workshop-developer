@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตัวอย่างโครง HTML/CSS/JS</title>
+
+  <!-- ลิงก์ไฟล์ CSS เข้ามาแต่งหน้าตา -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER — ส่วนหัวของหน้าเว็บ มักมีโลโก้/ชื่อเว็บ -->
+  <header>
+    <h1>ชื่อเว็บของเรา</h1>
+  </header>
+
+  <!-- MAIN — เนื้อหาหลักของหน้า -->
+  <main>
+    <section>
+      <h2>สวัสดี!</h2>
+      <p class="lead">นี่คือย่อหน้าตัวอย่าง ลองแก้ข้อความตรงนี้ดูได้เลย</p>
+
+      <!-- ปุ่มนี้จะถูกสั่งงานด้วย JavaScript ในไฟล์ script.js -->
+      <button id="greet-button">กดทักทาย</button>
+
+      <!-- ช่องว่างไว้ให้ JavaScript ใส่ข้อความเข้ามา -->
+      <p id="greet-output"></p>
+    </section>
+  </main>
+
+  <!-- FOOTER — ส่วนท้ายของหน้าเว็บ -->
+  <footer>
+    <p>© 2026 QuickTry-workshop-developer</p>
+  </footer>
+
+  <!-- ลิงก์ไฟล์ JavaScript ไว้ท้ายสุด -->
+  <script src="script.js"></script>
+</body>
+</html>
